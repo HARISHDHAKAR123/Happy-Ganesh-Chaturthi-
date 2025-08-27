@@ -1,0 +1,140 @@
+/* styles.css */
+:root{
+	--bg1:#0b0f1a;
+	--bg2:#1a1230;
+	--saffron:#ff7a00;
+	--vermilion:#ff3d00;
+	--gold:#f2c94c;
+	--rose:#ff6b81;
+	--white:#ffffff;
+	--muted:#d8d8d8;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+	color:var(--white);
+	background:radial-gradient(1200px 800px at 50% -10%,#2b1b4b 0%,var(--bg1) 45%,#06070b 100%) fixed;
+	overflow-x:hidden;
+}
+
+/* Canvas for petals */
+#petals-canvas{
+	position:fixed;inset:0;
+	pointer-events:none;z-index:0;
+}
+
+/* Garland */
+.top-garland{position:fixed;top:0;left:0;right:0;z-index:2}
+.garland{
+	display:flex;justify-content:center;gap:12px;padding:10px 0;
+	filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));
+}
+.garland .leaf{
+	width:20px;height:10px;border-radius:10px 10px 0 10px;
+	background:#29c46d;transform:rotate(20deg);
+}
+.garland .flower{
+	width:14px;height:14px;border-radius:50%;
+	background:radial-gradient(circle at 30% 30%, #ffd166, #ff9f1c 70%, #d46b08 100%);
+}
+
+/* Layout */
+.container{position:relative;z-index:1;padding:84px 20px 40px}
+.hero{
+	position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;
+	gap:14px; padding:24px 16px 10px;
+}
+.mandala{
+	position:absolute;inset:auto;top:-40px;left:50%;transform:translateX(-50%);
+	width:520px;height:520px;border-radius:50%;
+	background:
+		conic-gradient(from 0deg, rgba(242,201,76,.15), transparent 20%) ,
+		radial-gradient(circle at 50% 50%, rgba(255,255,255,.08), transparent 60%);
+	filter:blur(0.3px);
+	animation:slowspin 60s linear infinite;
+	opacity:.6;pointer-events:none;
+}
+@keyframes slowspin{to{transform:translateX(-50%) rotate(360deg)}}
+
+/* Ganesha SVG styling */
+.ganesha{
+	width:320px;max-width:80vw;aspect-ratio:1/1.1;
+	padding:16px;border-radius:16px;
+	background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0) 40%);
+	box-shadow:0 12px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.ganesha svg{width:100%;height:auto;display:block}
+
+/* Text */
+.title{
+	margin:6px 0 0;color:#ffe08a;letter-spacing:.4px;
+	font-size:clamp(28px, 5vw, 44px); font-weight:800; text-shadow:0 2px 18px rgba(255,200,50,.25);
+}
+.subtitle{
+	margin:0;color:var(--muted);font-size:clamp(14px,2.7vw,18px)
+}
+
+/* Buttons */
+.cta-row{display:flex;gap:12px;justify-content:center;margin:12px 0 0}
+.btn{
+	border:0;cursor:pointer; padding:10px 16px;border-radius:999px;
+	font-weight:700; letter-spacing:.3px; transition:.25s transform ease, .25s box-shadow ease, .25s background ease;
+}
+.btn.primary{background:linear-gradient(135deg, var(--saffron), var(--vermilion)); color:#161616; box-shadow:0 8px 22px rgba(255,96,0,.35)}
+.btn.ghost{background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.12)}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0) scale(.99)}
+
+/* Info section */
+.info{
+	margin:18px auto 0;max-width:980px;display:grid;gap:16px;
+	grid-template-columns:1fr; padding:0 6px;
+}
+.card{
+	background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+	border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px;
+	box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+.card h2{margin:0 0 8px;color:#ffd166}
+.card p{margin:0 0 10px;color:var(--muted)}
+.blessings{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.blessings li{
+	padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.1);
+	background:rgba(255,255,255,.06)
+}
+
+/* Diyas */
+.diya-row{display:flex;justify-content:center;gap:22px;margin:6px 0 0}
+.diya{
+	width:52px;height:30px;border-bottom-left-radius:26px;border-bottom-right-radius:26px;border-top-left-radius:6px;border-top-right-radius:6px;
+	background:linear-gradient(180deg, #c88925, #8a5a17);
+	position:relative;box-shadow:inset 0 4px 10px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.35);
+}
+.diya::before{
+	content:""; position:absolute; inset:-2px; border-radius:inherit; border:1px solid rgba(255,255,255,.15); pointer-events:none;
+}
+.flame{
+	position:absolute; left:50%; top:-20px; transform:translateX(-50%);
+	width:12px;height:22px;border-radius:50% 50% 50% 50% / 65% 65% 35% 35%;
+	background:radial-gradient(circle at 50% 30%, #fff5c4, #ffd166 55%, #ff7a00 90%);
+	filter:blur(.2px); animation:flicker 1.3s ease-in-out infinite;
+	box-shadow:0 0 20px rgba(255,160,40,.6), 0 0 35px rgba(255,100,0,.35);
+}
+@keyframes flicker{
+	0%,100%{transform:translateX(-50%) scale(1)}
+	50%{transform:translateX(-50%) scale(1.05)}
+}
+
+/* Footer */
+.footer{
+	text-align:center; padding:16px; color:#ffd166; opacity:.9; letter-spacing:.4px;
+}
+
+/* Responsive */
+@media (min-width:760px){
+	.info{grid-template-columns: 1fr 1fr}
+	.ganesha{width:360px}
+}

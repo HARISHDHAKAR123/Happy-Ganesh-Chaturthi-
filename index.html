@@ -1,0 +1,114 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Happy Ganesh Chaturthi</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="icon" href="data:," />
+	<meta name="description" content="Wishing you a blessed Ganesh Chaturthi!" />
+	<style>
+		/* Extra overrides to ensure text and image visible */
+		.hero .big-title{font-size:clamp(32px, 6vw, 56px); color:#ffe08a; margin:8px 0 6px; text-shadow:0 2px 18px rgba(255,200,50,.25); font-weight:900}
+		.hero .tagline{color:#f0e6c8; margin:0 0 10px; font-size:clamp(16px, 3vw, 20px)}
+		.hero .hero-img{width:min(520px, 90vw); border-radius:16px; box-shadow:0 12px 40px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.08); display:block}
+	</style>
+</head>
+<body>
+	<canvas id="petals-canvas" aria-hidden="true"></canvas>
+
+	<header class="top-garland" aria-hidden="true">
+		<div class="garland">
+			<span class="leaf"></span><span class="flower"></span><span class="leaf"></span>
+			<span class="flower"></span><span class="leaf"></span><span class="flower"></span>
+			<span class="leaf"></span><span class="flower"></span><span class="leaf"></span>
+		</div>
+	</header>
+
+	<main class="container">
+		<section class="hero">
+			<h1 class="big-title">Happy Ganesh Chaturthi</h1>
+			<p class="tagline">Ganpati Bappa Morya! Mangal Murti Morya!</p>
+
+			<!-- Yahan apni image rakhein: file name ganesh.jpg -->
+			<img src="ganesh.jpg" alt="Lord Ganesha" class="hero-img" />
+
+			<!-- Niche aapka pehle wala SVG bhi rahega, agar image na ho to ye dikh jayega -->
+			<figure class="ganesha" aria-label="Lord Ganesha">
+				<svg viewBox="0 0 320 360" role="img" aria-label="Stylized Ganesha">
+					<defs>
+						<radialGradient id="glow" cx="50%" cy="40%" r="60%">
+							<stop offset="0%" stop-color="#fff7d6" stop-opacity="1"/>
+							<stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+						</radialGradient>
+						<linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+							<stop offset="0%" stop-color="#f7d774"/>
+							<stop offset="100%" stop-color="#d3a81f"/>
+						</linearGradient>
+						<linearGradient id="saffron" x1="0%" y1="0%" x2="100%" y2="100%">
+							<stop offset="0%" stop-color="#ff8a00"/>
+							<stop offset="100%" stop-color="#ff3d00"/>
+						</linearGradient>
+						<linearGradient id="rose" x1="0%" y1="0%" x2="100%" y2="100%">
+							<stop offset="0%" stop-color="#ff6b81"/>
+							<stop offset="100%" stop-color="#d6336c"/>
+						</linearGradient>
+					</defs>
+
+					<circle cx="160" cy="160" r="130" fill="url(#glow)"></circle>
+					<path d="M80 90 Q160 10 240 90 L220 110 Q160 60 100 110 Z" fill="url(#gold)" />
+					<circle cx="160" cy="65" r="10" fill="#fff" stroke="#d3a81f" stroke-width="3"></circle>
+					<ellipse cx="160" cy="150" rx="80" ry="70" fill="url(#saffron)" />
+					<ellipse cx="135" cy="150" rx="10" ry="6" fill="#2b2b2b"/>
+					<ellipse cx="185" cy="150" rx="10" ry="6" fill="#2b2b2b"/>
+					<rect x="155" y="130" width="10" height="24" rx="3" fill="#fff"/>
+					<path d="M160 160 C150 190, 140 210, 160 230 C185 255, 145 270, 130 250 C120 235, 145 235, 160 245" fill="none" stroke="url(#rose)" stroke-width="18" stroke-linecap="round"/>
+					<path d="M80 145 C50 125, 50 185, 90 190" fill="url(#rose)"/>
+					<path d="M240 145 C270 125, 270 185, 230 190" fill="url(#rose)"/>
+					<path d="M110 270 Q160 300 210 270 L200 300 Q160 325 120 300 Z" fill="url(#gold)"/>
+					<circle cx="140" cy="275" r="6" fill="#fff7d6"/>
+					<circle cx="160" cy="278" r="6" fill="#fff7d6"/>
+					<circle cx="180" cy="275" r="6" fill="#fff7d6"/>
+				</svg>
+			</figure>
+
+			<div class="cta-row">
+				<button id="play-aarti" class="btn primary" aria-label="Play Aarti">Play Aarti</button>
+				<button id="shower-flowers" class="btn ghost" aria-label="Shower Flowers">Shower Flowers</button>
+			div>
+		</section>
+
+		<section class="info">
+			<div class="card">
+				<h2>Ganpati Bappa Morya!</h2>
+				<p>Wishing you prosperity, wisdom, and joy on this auspicious day.</p>
+				<ul class="blessings">
+					<li>Prosperity</li>
+					<li>Success</li>
+					<li>Good Health</li>
+					<li>Knowledge</li>
+				</ul>
+			</div>
+
+			<div class="diya-row" aria-hidden="true">
+				<div class="diya"><span class="flame"></span></div>
+				<div class="diya"><span class="flame"></span></div>
+				<div class="diya"><span class="flame"></span></div>
+			</div>
+		</section>
+	</main>
+
+	<audio id="aarti" preload="auto" controls>
+  <source src="aarti.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
+
+
+	<footer class="footer">
+		<span>ॐ श्री गणेशाय नमः</span>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>
